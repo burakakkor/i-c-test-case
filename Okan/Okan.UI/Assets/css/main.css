@@ -1,0 +1,17 @@
+﻿body { padding-top: 4rem; }
+ul { list-style: none; }
+button { cursor: pointer; }
+
+.main { padding-top: 50px; }
+
+.box { border: 1px solid #bdc3c7; padding: 10px; }
+
+.title { border-bottom: 1px solid #ccc; }
+
+.cart li, .drinks li { padding-top: 10px; line-height: 35px; border-bottom: 1px solid #ccc; }
+
+
+/* ng-cloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
