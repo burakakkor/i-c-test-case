@@ -1,11 +1,12 @@
-﻿using Checkout;
-using Checkout.Helpers;
+﻿using System;
+using Checkout;
 using Okan.API.Models.RequestModel;
 using Okan.Core.Models;
 using Okan.Core.Repositories;
 using System.Configuration;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Environment = Checkout.Helpers.Environment;
 
 namespace Okan.API
 {
@@ -34,6 +35,7 @@ namespace Okan.API
             }
             else
             {
+                throw new Exception();
                 // apiResponse.error
             }
         }

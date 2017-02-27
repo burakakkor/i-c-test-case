@@ -16,10 +16,10 @@
                 <ul>
                     <li ng-repeat="item in vm.cart.drinks">
                         <span>{{item.drink.name}}</span> - <span>x{{item.count}}</span>
-                        <button type="button" class="btn btn-sm btn-danger float-right" ng-click="vm.removeDrink(item.drink)">-</button>
+                        <button type="button" class="btn btn-sm btn-danger float-right" ng-click="vm.removeDrink(item.drink)" ng-disabled="vm.process">-</button>
                     </li>
                 </ul>
-                <button type="button" class="btn btn-sm btn-success float-right" ng-click="vm.checkoutCart()">Checkout</button>
+                <button type="button" class="btn btn-sm btn-success float-right" ng-click="vm.checkoutCart()" ng-disabled="vm.process">Checkout</button>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
             <ul>
                 <li ng-repeat="drink in vm.drinks">
                     <span>{{drink.name}}</span>
-                    <button type="button" class="btn btn-sm btn-success float-right" ng-click="vm.addDrink(drink)">+</button>
+                    <button type="button" class="btn btn-sm btn-success float-right" ng-click="vm.addDrink(drink)" ng-disabled="vm.process">+</button>
                 </li>
             </ul>
         </div>

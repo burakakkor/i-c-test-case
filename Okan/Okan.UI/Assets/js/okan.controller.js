@@ -7,28 +7,27 @@
     main.$inject = [
         '$scope',
         'cartService',
-        'drinkService',
-        'alertService'
+        'drinkService'
     ];
 
-    function main($scope, cartService, drinkService, alertService) {
+    function main($scope, cartService, drinkService) {
 
         var vm = this;
 
         vm.cart = {};
         vm.drinks = [];
 
-        vm.alert = {
-            status: '',
-            message: '',
-            show: false
-        };
+        vm.alert = { status: '', message: '', show: false };
+
+        vm.process = false;
 
         vm.addDrink = addDrink;
         vm.removeDrink = removeDrink;
         vm.checkoutCart = checkoutCart;
 
         $scope.$on('updateCart', function () { getCart(); });
+        $scope.$on('updateProcess', function (event, value) { vm.process = value; });
+        $scope.$on('updateAlert', function(event, value) { vm.alert = value; });
 
         initialize();
 
@@ -53,11 +52,7 @@
         }
 
         function checkoutCart() {
-            cartService.checkoutCart(vm.cart).then(function() {
-                vm.alert = alertService.getSuccess('Your drinks will be shipped soon. :)');
-            }, function() {
-                vm.alert = alertService.getError('An error occured. Please try again. :(');
-            });
+            cartService.checkoutCart(vm.cart);
         }
     }
 })()
